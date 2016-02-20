@@ -9,11 +9,14 @@ $settings = array(
     'consumer_secret' => "NZsY3SS3b2u74AT7wKmkvS97aEe9VZRktIRhenBWkfjc0IrPeM"
 );
 
-$url = 'https://api.twitter.com/1.1/followers/ids.json';
-$getfield = '?screen_name=J7mbo';
+$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+$getfield = '?screen_name=abhijit_t9hacks';
 $requestMethod = 'GET';
+
 $twitter = new TwitterAPIExchange($settings);
-echo $twitter->setGetfield($getfield)
-             ->buildOauth($url, $requestMethod)
-             ->performRequest();
+$response = $twitter->setGetfield($getfield)
+    ->buildOauth($url, $requestMethod)
+    ->performRequest();
+
+var_dump(json_decode($response));
 ?>

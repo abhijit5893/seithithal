@@ -18,7 +18,7 @@ $response = $twitter->setGetfield($getfield)
     ->buildOauth($url, $requestMethod)
     ->performRequest();
 
-var_dump($response);
 data = json_decode($response);
+var_dump(data);
 
 ?>

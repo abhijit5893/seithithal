@@ -1,59 +1,19 @@
-Hello
 <?php
-    function buildBaseString($baseURI, $method, $params) {
-        $r = array();
-        ksort($params);
-        foreach($params as $key=>$value){
-            $r[] = "$key=" . rawurlencode($value);
-        }
-        return $method."&" . rawurlencode($baseURI) . '&' . rawurlencode(implode('&', $r));
-    }
+ini_set('display_errors', 1);
+require_once('TwitterAPIExchange.php');
 
-    function buildAuthorizationHeader($oauth) {
-        $r = 'Authorization: OAuth ';
-        $values = array();
-        foreach($oauth as $key=>$value)
-            $values[] = "$key=\"" . rawurlencode($value) . "\"";
-        $r .= implode(', ', $values);
-        return $r;
-    }
+$settings = array(
+    'oauth_access_token' => "701172163357716480-qW6xBIZmaBoDMU1zHwE8qkYLZvR12FW",
+    'oauth_access_token_secret' => "PAn2n1Yp85SEqiDXq4FD719zLlv56MBkNFSWf3CvqwQbc",
+    'consumer_key' => "9euPRfBh3i4qamZkTA7WsJI28",
+    'consumer_secret' => "NZsY3SS3b2u74AT7wKmkvS97aEe9VZRktIRhenBWkfjc0IrPeM"
+);
 
-    $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
-
-    $oauth_access_token = "701172163357716480-qW6xBIZmaBoDMU1zHwE8qkYLZvR12FW";
-    $oauth_access_token_secret = "PAn2n1Yp85SEqiDXq4FD719zLlv56MBkNFSWf3CvqwQbc";
-    $consumer_key = "9euPRfBh3i4qamZkTA7WsJI28";
-    $consumer_secret = "NZsY3SS3b2u74AT7wKmkvS97aEe9VZRktIRhenBWkfjc0IrPeM";
-
-    $oauth = array( 'oauth_consumer_key' => $consumer_key,
-                    'oauth_nonce' => time(),
-                    'oauth_signature_method' => 'HMAC-SHA1',
-                    'oauth_token' => $oauth_access_token,
-                    'oauth_timestamp' => time(),
-                    'oauth_version' => '1.0');
-
-    $base_info = buildBaseString($url, 'GET', $oauth);
-    $composite_key = rawurlencode($consumer_secret) . '&' . rawurlencode($oauth_access_token_secret);
-    $oauth_signature = base64_encode(hash_hmac('sha1', $base_info, $composite_key, true));
-    $oauth['oauth_signature'] = $oauth_signature;
-
-    // Make requests
-    $header = array(buildAuthorizationHeader($oauth), 'Expect:');
-    $options = array( CURLOPT_HTTPHEADER => $header,
-                      //CURLOPT_POSTFIELDS => $postfields,
-                      CURLOPT_HEADER => false,
-                      CURLOPT_URL => $url,
-                      CURLOPT_RETURNTRANSFER => true,
-                      CURLOPT_SSL_VERIFYPEER => false);
-
-    $feed = curl_init();
-    curl_setopt_array($feed, $options);
-    $json = curl_exec($feed);
-    curl_close($feed);
-
-    $twitter_data = json_decode($json);
-
-//print it out
-print_r ($twitter_data);
-
+$url = 'https://api.twitter.com/1.1/followers/ids.json';
+$getfield = '?screen_name=J7mbo';
+$requestMethod = 'GET';
+$twitter = new TwitterAPIExchange($settings);
+echo $twitter->setGetfield($getfield)
+             ->buildOauth($url, $requestMethod)
+             ->performRequest();
 ?>

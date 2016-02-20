@@ -19,5 +19,5 @@ $response = $twitter->setGetfield($getfield)
     ->performRequest();
 
 data = json_decode($response);
-print data[0]["text"]
+print data[0]
 ?>

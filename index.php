@@ -160,7 +160,7 @@ $tweets_data = json_decode($response);
         break;
       } 
       echo "document.getElementById('icon".$i.$count."').innerHTML='<p>".str_replace("'", "", $doc->content)."</p>';";
-      echo "document.getElementById('link".$i.$count."').href='".str_replace("'", "", $doc->url)."';";
+      echo "document.getElementById('link".$i.$count."').href='".str_replace("'", "", $doc->unescapedUrl)."';";
       $i += 1;
     }
     echo "document.getElementById('head".($count +1)."').innerHTML='".str_replace("'", "", $query)."';";

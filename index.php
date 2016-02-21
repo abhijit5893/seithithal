@@ -109,7 +109,7 @@ $tweets_data = json_decode($response);
     $response = curl_exec($curl);
     $data = json_decode($response);
     $i = 1;
-    if($data != NULL){
+    if($data->response->status != "error"){
     foreach($data->response->results as $doc){
       if ($i > 1){
         break;

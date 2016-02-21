@@ -1,0 +1,10 @@
+body {
+    background-image: url("bg.png");
+    background-size: 100%;
+}
+
+div{
+	height: 400 px;
+	width: : 300 px;
+	border: 1 px solid;
+}

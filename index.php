@@ -29,7 +29,7 @@ $tweets_data = json_decode($response);
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link rel="shortcut icon" type="image/ico" href="/seithithal/img/favicon.ico"/>
+  <link rel="shortcut icon" type="image/ico" href="/img/favicon.ico"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>SeithiThal</title>
   <script>
@@ -185,7 +185,7 @@ $tweets_data = json_decode($response);
 <body onload="init()">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><img src="/seithithal/img/logo.jpg" width="120" height="100"/></a>
+      <a id="logo-container" href="#" class="brand-logo"><img src="/img/logo.jpg" width="120" height="100"/></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#"></a></li>
       </ul>
@@ -208,13 +208,13 @@ $tweets_data = json_decode($response);
         <div class="row center" id="form">
             <i class="material-icons prefix">mode_edit</i>
             <input placeholder="Your Twitter UserName" id="twitter_username" name="name" type="text" class="validate" style="width:400px"><br/>
-            <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="window.location.href='/seithithal/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
+            <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="window.location.href='/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="/seithithal/img/background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="/img/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 <br/><br/><br/>
@@ -265,7 +265,7 @@ $tweets_data = json_decode($response);
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="/seithithal/img/background2.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="/img/background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="parallax-container">
@@ -358,7 +358,7 @@ $tweets_data = json_decode($response);
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="/seithithal/img/background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="/img/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
   <footer class="page-footer teal">

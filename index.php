@@ -184,18 +184,6 @@ $tweets_data = json_decode($response);
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body onload="init()" style="background-color: #a89aff;">
-  <nav style="background-color: #a89aff;" role="navigation">
-    <div class="nav-wrapper container">
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#"></a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#"></a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
 
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
@@ -207,7 +195,7 @@ $tweets_data = json_decode($response);
           <h5 class="header col s12 light" style="color: white; font-weight: bold;" id="head1">A modern day smart and intelligent personalized news provider</h5>
         </div>
         <div class="row center" id="form">
-            <i class="material-icons prefix" style="position: relative; top : 0px; left: 420px;">mode_edit</i>
+            <i class="material-icons prefix" style="position: relative; top : 5px; left: 410px;">mode_edit</i>
             <input placeholder="Your Twitter UserName..." id="twitter_username" name="name" type="text" class="validate" style="width:400px; background-color: rgba(128, 128, 128, 0.52); border-radius:10px; padding-left: 10px; padding-right:10px; color: white;"><br/>
             <a href="#" id="download-button" class="btn-large waves-effect waves-light purple lighten-1" onclick="window.location.href='/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
         </div>

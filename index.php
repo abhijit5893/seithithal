@@ -44,7 +44,7 @@ $tweets_data = json_decode($response);
       
       if($count > 3 ) break;
     $text = $tweet->text;
-    $textrazor = new TextRazor('614173a490965b6082469fff65a1e180c0b563c60a080ee2109a2ac3');
+    $textrazor = new TextRazor('55e987cb04db5390ef742499bb12253889f6b84b4d6202b6e3568d2a');
 
     $query_store = array();
     $textrazor->addExtractor('entities');

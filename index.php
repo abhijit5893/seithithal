@@ -183,10 +183,9 @@ $tweets_data = json_decode($response);
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body onload="init()">
-  <nav class="white" role="navigation">
+<body onload="init()" style="background-color: #a89aff;">
+  <nav style="background-color: #a89aff;" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><img src="/img/logo.jpg" width="120" height="100"/></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#"></a></li>
       </ul>
@@ -202,21 +201,21 @@ $tweets_data = json_decode($response);
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2">SeithiThal</h1>
+        <h1 class="header center text-lighten-2" style="color: white; font-family: monospace;">SeithiThal</h1>
         <div class="row center">
           <h3 class="header col s12 light" id="user"></h5>
-          <h5 class="header col s12 light" id="head1">A modern day smart and intelligent personalized news provider</h5>
+          <h5 class="header col s12 light" style="color: white; font-weight: bold;" id="head1">A modern day smart and intelligent personalized news provider</h5>
         </div>
         <div class="row center" id="form">
             <i class="material-icons prefix" style="position: relative; top : 0px; left: 420px;">mode_edit</i>
-            <input placeholder="Your Twitter UserName..." id="twitter_username" name="name" type="text" class="validate" style="width:400px; background-color: rgba(128, 128, 128, 0.52); border-radius:10px; padding-left: 10px; padding-right:10px; "><br/>
-            <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="window.location.href='/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
+            <input placeholder="Your Twitter UserName..." id="twitter_username" name="name" type="text" class="validate" style="width:400px; background-color: rgba(128, 128, 128, 0.52); border-radius:10px; padding-left: 10px; padding-right:10px; color: white;"><br/>
+            <a href="#" id="download-button" class="btn-large waves-effect waves-light purple lighten-1" onclick="window.location.href='/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="/img/background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="/img/bg1.jpg" alt="Unsplashed background img 1" style="background-color:white;"></div>
   </div>
 
 <br/><br/><br/>
@@ -224,33 +223,33 @@ $tweets_data = json_decode($response);
     <div class="section">
 
       <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-             <div class="card">
+      <div class="row" >
+        <div class="col s12 m4" style="background-color: #7440c7;" >
+             <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id="icon10">
             </div>
             <div class="card-action">
-              <a href="#" id="link10">More Details...</a>
+              <a href="#" id="link10" style="color:#7440c7">More Details...</a>
             </div>
           </div>
         </div>
 
-        <div class="col s12 m4">
-   <div class="card">
+        <div class="col s12 m4" style="background-color: #7440c7;">
+   <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id ="icon20">
             </div>
             <div class="card-action">
-              <a href="#" id="link20">More Details...</a>
+              <a href="#" id="link20" style="color:#7440c7">More Details...</a>
             </div>
           </div>
         </div>
 
-        <div class="col s12 m4">
-   <div class="card">
+        <div class="col s12 m4" style="background-color: #7440c7;">
+   <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id="icon30">
             </div>
             <div class="card-action">
-              <a href="#" id="link30">More Details...</a>
+              <a href="#" id="link30" style="color:#7440c7">More Details...</a>
             </div>
           </div>
       </div>
@@ -263,7 +262,7 @@ $tweets_data = json_decode($response);
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light" id="head2"></h5>
+          <h5 class="header col s12 light" id="head2"  style="color: white; font-weight: bold;"></h5>
         </div>
       </div>
     </div>
@@ -277,32 +276,32 @@ $tweets_data = json_decode($response);
 <div class="row">
        <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m4">
-             <div class="card">
+        <div class="col s12 m4" style="background-color: #7440c7;">
+             <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id="icon11" style="color:black;">
             </div>
             <div class="card-action">
-              <a href="#" id="link11">More Details...</a>
+              <a href="#" id="link11" style="color:#7440c7">More Details...</a>
             </div>
           </div>
         </div>
 
-        <div class="col s12 m4">
-   <div class="card">
+        <div class="col s12 m4" style="background-color: #7440c7;">
+   <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id ="icon21" style="color:black;">
             </div>
             <div class="card-action">
-              <a href="#" id="link21">More Details...</a>
+              <a href="#" id="link21" style="color:#7440c7">More Details...</a>
             </div>
           </div>
         </div>
 
-        <div class="col s12 m4">
-   <div class="card">
+        <div class="col s12 m4" style="background-color: #7440c7;">
+   <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id="icon31" style="color:black;">
             </div>
             <div class="card-action">
-              <a href="#" id="link31">More Details...</a>
+              <a href="#" id="link31" style="color:#7440c7">More Details...</a>
             </div>
           </div>
       </div>
@@ -319,32 +318,32 @@ $tweets_data = json_decode($response);
 <div class="row">
         <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m4">
-             <div class="card">
+        <div class="col s12 m4" style="background-color: #7440c7;">
+             <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id="icon12" style="color:black;">
             </div>
             <div class="card-action">
-              <a href="#" id="link12">More Details...</a>
+              <a href="#" id="link12" style="color:#7440c7">More Details...</a>
             </div>
           </div>
         </div>
 
-        <div class="col s12 m4">
-   <div class="card">
+        <div class="col s12 m4" style="background-color: #7440c7;">
+   <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id ="icon22" style="color:black;">
             </div>
             <div class="card-action">
-              <a href="#" id="link22">More Details...</a>
+              <a href="#" id="link22" style="color:#7440c7">More Details...</a>
             </div>
           </div>
         </div>
 
-        <div class="col s12 m4">
-   <div class="card">
+        <div class="col s12 m4" style="background-color: #7440c7;">
+   <div class="card" style="background-color: #d3b9fc;">
             <div class="card-content" id="icon32" style="color:black;">
             </div>
             <div class="card-action">
-              <a href="#" id="link32">More Details...</a>
+              <a href="#" id="link32" style="color:#7440c7">More Details...</a>
             </div>
           </div>
       </div>
@@ -356,14 +355,14 @@ $tweets_data = json_decode($response);
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light" id="head3"></h5>
+          <h5 class="header col s12 light" id="head3"  style="color: white; font-weight: bold;"></h5>
         </div>
       </div>
     </div>
     <div class="parallax"><img src="/img/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
-  <footer class="page-footer teal">
+  <footer class="page-footer" style="background-color: #7440c7;">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">

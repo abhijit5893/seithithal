@@ -172,7 +172,7 @@ $tweets_data = json_decode($response);
         <div class="row center" id="form">
             <i class="material-icons prefix">mode_edit</i>
             <input placeholder="Your Twitter UserName" id="twitter_username" name="name" type="text" class="validate" style="width:400px"><br/>
-            <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="window.location.href='/seithithal/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
+            <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="window.location.href='/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
         </div>
         <br><br>
 

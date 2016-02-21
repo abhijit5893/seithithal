@@ -29,16 +29,19 @@ $tweets_data = json_decode($response);
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link rel="shortcut icon" type="image/ico" href="/img/favicon.ico"/>
+  <link rel="shortcut icon" type="image/ico" href="/seithithal/img/favicon.ico"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>SeithiThal</title>
   <script>
   function init(){
     document.getElementById('form').style.display='<?php if(isset($_GET['name'])){ echo 'none';} ?>';
     <?php
+    try{
+
     if(isset($_GET['name'])){
     $count =0 ;
     foreach($tweets_data as $tweet){
+      
       if($count > 3 ) break;
     $text = $tweet->text;
     $textrazor = new TextRazor('614173a490965b6082469fff65a1e180c0b563c60a080ee2109a2ac3');
@@ -94,7 +97,7 @@ $tweets_data = json_decode($response);
     //echo $query.'<br/>';
     $query = str_replace(' ', '+',$query);
     $curl = curl_init();
-    $curl_url = 'http://content.guardianapis.com/search?q='.$query.'&api-key=e9419ba7-4eee-4859-82fc-3313ad8049a0';
+    $curl_url = 'http://content.guardianapis.com/search?q='.str_replace("#", "", $query).'&api-key=e9419ba7-4eee-4859-82fc-3313ad8049a0';
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_URL => $curl_url,
@@ -104,6 +107,7 @@ $tweets_data = json_decode($response);
     $response = curl_exec($curl);
     $data = json_decode($response);
     $i = 1;
+    if($data != NULL){
     foreach($data->response->results as $doc){
       if ($i > 2){
         break;
@@ -113,11 +117,12 @@ $tweets_data = json_decode($response);
       $i += 1;
     }
     echo "document.getElementById('head".($count +1)."').innerHTML='".str_replace("'", "", $query)."';";
+  }
     curl_close($curl);
     $query =str_replace(' ','+', $query);
 
     $curl = curl_init();
-    $curl_url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='.$query.'&sort=newest&api-key=e78fc55203c3a90f51121f7d8b9e7c4a:1:74485816';
+    $curl_url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='.str_replace("#", "", $query).'&sort=newest&api-key=e78fc55203c3a90f51121f7d8b9e7c4a:1:74485816';
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_URL => $curl_url,
@@ -126,17 +131,25 @@ $tweets_data = json_decode($response);
 
     $response = curl_exec($curl);
     $data = json_decode($response);
+     if($data != NULL){
+
     foreach($data->response->docs as $doc){
       if ($i > 3) break;
       echo "document.getElementById('icon".$i.$count."').innerHTML='<p>".str_replace("'", "", $doc->snippet)."</p>';";
       echo "document.getElementById('link".$i.$count."').href='".str_replace("'", "", $doc->web_url)."';";
       $i += 1;
     }
-
+    }
     curl_close($curl);
+  
     $count += 1;
   }
+  }
 }
+  catch(Exception $e){
+    echo "alert('".$e."');";
+  }
+
 
     ?>
   }
@@ -149,7 +162,7 @@ $tweets_data = json_decode($response);
 <body onload="init()">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><img src="/img/logo.jpg" width="120" height="100"/></a>
+      <a id="logo-container" href="#" class="brand-logo"><img src="/seithithal/img/logo.jpg" width="120" height="100"/></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#"></a></li>
       </ul>
@@ -172,13 +185,13 @@ $tweets_data = json_decode($response);
         <div class="row center" id="form">
             <i class="material-icons prefix">mode_edit</i>
             <input placeholder="Your Twitter UserName" id="twitter_username" name="name" type="text" class="validate" style="width:400px"><br/>
-            <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="window.location.href='/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
+            <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="window.location.href='/seithithal/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="/img/background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="/seithithal/img/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 <br/><br/><br/>
@@ -229,7 +242,7 @@ $tweets_data = json_decode($response);
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="/img/background2.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="/seithithal/img/background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="parallax-container">
@@ -322,7 +335,7 @@ $tweets_data = json_decode($response);
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="/img/background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="/seithithal/img/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
   <footer class="page-footer teal">

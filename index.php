@@ -94,6 +94,7 @@ $tweets_data = json_decode($response);
       }
       $cnt += 1;
     }
+    echo "document.getElementById('user').innerHTML='".str_replace("'", "", $username)."';";
     echo "document.getElementById('head".($count +1)."').innerHTML='".str_replace("'", "", $query)."';";
     //echo $query.'<br/>';
     $query = str_replace(' ', '+',$query);
@@ -203,11 +204,12 @@ $tweets_data = json_decode($response);
         <br><br>
         <h1 class="header center teal-text text-lighten-2">SeithiThal</h1>
         <div class="row center">
+          <h3 class="header col s12 light" id="user"></h5>
           <h5 class="header col s12 light" id="head1">A modern day smart and intelligent personalized news provider</h5>
         </div>
         <div class="row center" id="form">
-            <i class="material-icons prefix">mode_edit</i>
-            <input placeholder="Your Twitter UserName" id="twitter_username" name="name" type="text" class="validate" style="width:400px"><br/>
+            <i class="material-icons prefix" style="position: relative; top : 0px; left: 420px;">mode_edit</i>
+            <input placeholder="Your Twitter UserName..." id="twitter_username" name="name" type="text" class="validate" style="width:400px; background-color: rgba(128, 128, 128, 0.52); border-radius:10px; padding-left: 10px; padding-right:10px; "><br/>
             <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="window.location.href='/index.php?name='+document.getElementById('twitter_username').value">Enter</a>
         </div>
         <br><br>

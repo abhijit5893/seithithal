@@ -94,6 +94,7 @@ $tweets_data = json_decode($response);
       }
       $cnt += 1;
     }
+    echo "document.getElementById('head".($count +1)."').innerHTML='".str_replace("'", "", $query)."';";
     //echo $query.'<br/>';
     $query = str_replace(' ', '+',$query);
     $curl = curl_init();
@@ -109,17 +110,16 @@ $tweets_data = json_decode($response);
     $i = 1;
     if($data != NULL){
     foreach($data->response->results as $doc){
-      if ($i > 2){
+      if ($i > 1){
         break;
       } 
       echo "document.getElementById('icon".$i.$count."').innerHTML='<p>".str_replace("'", "", $doc->webTitle)."</p>';";
       echo "document.getElementById('link".$i.$count."').href='".str_replace("'", "", $doc->webUrl)."';";
       $i += 1;
     }
-    echo "document.getElementById('head".($count +1)."').innerHTML='".str_replace("'", "", $query)."';";
+
   }
     curl_close($curl);
-    $query =str_replace(' ','+', $query);
 
     $curl = curl_init();
     $curl_url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='.str_replace("#", "", $query).'&sort=newest&api-key=e78fc55203c3a90f51121f7d8b9e7c4a:1:74485816';
@@ -134,7 +134,7 @@ $tweets_data = json_decode($response);
      if($data != NULL){
 
     foreach($data->response->docs as $doc){
-      if ($i > 3) break;
+      if ($i > 2) break;
       echo "document.getElementById('icon".$i.$count."').innerHTML='<p>".str_replace("'", "", $doc->snippet)."</p>';";
       echo "document.getElementById('link".$i.$count."').href='".str_replace("'", "", $doc->web_url)."';";
       $i += 1;
@@ -142,6 +142,29 @@ $tweets_data = json_decode($response);
     }
     curl_close($curl);
   
+    $curl = curl_init();
+    $curl_url = 'https://ajax.googleapis.com/ajax/services/search/news?v=1.0&q='.str_replace("#", "", $query);
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => $curl_url,
+        CURLOPT_USERAGENT => 'Google News API'
+    ));
+
+    $response = curl_exec($curl);
+    $data = json_decode($response);
+    if($data != NULL){
+
+    foreach($data->responseData->results as $doc){
+      if ($i > 3){
+        break;
+      } 
+      echo "document.getElementById('icon".$i.$count."').innerHTML='<p>".str_replace("'", "", $doc->content)."</p>';";
+      echo "document.getElementById('link".$i.$count."').href='".str_replace("'", "", $doc->url)."';";
+      $i += 1;
+    }
+    echo "document.getElementById('head".($count +1)."').innerHTML='".str_replace("'", "", $query)."';";
+  }
+    curl_close($curl);
     $count += 1;
   }
   }

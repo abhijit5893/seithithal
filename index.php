@@ -1,4 +1,5 @@
 <?php 
+
 if(isset($_GET['name'])){
   $username = $_GET['name'];
 ini_set('display_errors', 1);
